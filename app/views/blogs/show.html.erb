@@ -1,0 +1,25 @@
+<%=link_to("Back to Home Page", root_path) %>
+
+<h1>Blogs#show</h1>
+
+<h2><%= @blog.title%></h2>
+<p>Location: <%= @blog.location%></p>
+<p>Country: <%= @blog.country%></p>
+<p>Budget: <%= @blog.budget%></p> <%#TODO%>
+<p>Activity: <%= @blog.activity%></p>
+<p>Content: <%= @blog.content%></p>
+
+<p>This post was created on:</p>
+<%= @blog.created_at%>
+
+<hr>
+<h2>Comments</h2>
+
+<% @blog.comments.each do |comment| %>
+    <p><%= comment.name %> says:</p>
+    <p>"<%= comment.content %>"</p>
+    <p>on <%= comment.created_at %></p>
+    <hr>
+<%end%>
+
+
