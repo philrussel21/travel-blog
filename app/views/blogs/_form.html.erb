@@ -1,0 +1,39 @@
+<% if @new_blog.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@new_blog.errors.count, "error") %> prohibited this article from being saved:</h2>
+ 
+    <ul>
+    <% @new_blog.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <%=f.label :title, "Title of the Blog Post" %>
+  <%=f.text_field :title, size: '60' %>
+  <br>
+
+  <%=f.label :location %>
+  <%=f.text_field :location, size: '30' %>
+  <br>
+
+  <%#TODO - Select tag with all countries listed%>
+  <%=f.label :country %>
+  <%=f.text_field :country %>
+  <br>
+
+  <%#TODO - Currency and algorithm to convert to AUD%>
+  <%=f.label :budget %>
+  <%=f.number_field :budget %>
+  <br>
+
+  <%#TODO - Select tag with common activities and 'Other'
+  with pops out a text_field%>
+  <%=f.label :activity %>
+  <%=f.text_field :activity %>
+  <br>
+
+  <%=f.label :content %>
+  <%=f.text_area :content, size: "60x12" %>
+  <br>
