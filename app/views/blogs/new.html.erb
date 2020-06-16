@@ -1,2 +1,13 @@
-<h1>Blogs#new</h1>
-<p>Find me in app/views/blogs/new.html.erb</p>
+<h1>Create New Blog Post</h1>
+
+<%=link_to("Back to Home Page", root_path) %>
+
+
+<%= form_with(model: @new_blog, local: true) do |f|%>
+
+  <%= render 'form', f: f %>
+
+  <%=f.submit "Create New Post"%>
+
+
+<%end%>

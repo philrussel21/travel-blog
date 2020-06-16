@@ -15,6 +15,7 @@
 <hr>
 <h2>Comments</h2>
 
+
 <% @blog.comments.each do |comment| %>
     <p><%= comment.name %> says:</p>
     <p>"<%= comment.content %>"</p>
@@ -23,3 +24,11 @@
 <%end%>
 
 
+<%= form_with(model: [ @blog, @blog.comments.build], local: true) do |f| %>
+    <%=f.label :name, "Please provide your name:" %>
+    <%= f.text_field :name, size: '30'%>
+
+    <%=f.text_area :content, size: '30x6'%>
+
+    <%= f.submit "Create Comment" %>
+<%end%>
