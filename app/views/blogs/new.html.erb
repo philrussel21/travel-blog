@@ -1,14 +1,12 @@
-<h1>Create New Blog Post</h1>
+<div class="container-fluid">
 
-<%=link_to("Back to Home Page", root_path) %>
+<div class="row justify-content-center">
+<%= form_with(model: @new_blog, local: true, html: {class: 'col-4 p-3 mb-2 bg-light text-dark'}) do |f|%>
+<button type="button" class="btn btn-outline-primary"><%=link_to("Back to Home Page", root_path) %></button>
 
-
-<%= form_with(model: @new_blog, local: true) do |f|%>
-
+<h1>Create New Post</h1>
 <% if @new_blog.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@new_blog.errors.count, "error") %> prohibited this article from being saved:</h2>
- 
+  <div id="error_explanation" class="p-3 mb-2 bg-danger text-white">
     <ul>
     <% @new_blog.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -19,7 +17,9 @@
 
   <%= render 'form', f: f %>
 
-  <%=f.submit "Create New Post"%>
+  <%=f.submit "Create New Post", class: "btn btn-success"%>
 
 
 <%end%>
+</div>
+</div>

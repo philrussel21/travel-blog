@@ -1,28 +1,47 @@
-
+<div class="form-group">
   <%=f.label :title, "Title of the Blog Post" %>
-  <%=f.text_field :title, size: '60' %>
+  <%=f.text_field :title, size: '60', class: 'form-control'%>
   <br>
+</div>
 
-  <%=f.label :location %>
-  <%=f.text_field :location, size: '30' %>
-  <br>
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <%=f.label :location %>
+    <%=f.text_field :location, size: '30', class: 'form-control'%>
+    <br>
+  </div>
 
   <%#TODO - Select tag with all countries listed%>
-  <%=f.label :country %>
-  <%=f.text_field :country %>
-  <br>
+  <div class="form-group col-md-6">
+    <%=f.label :country %>
+    <%=f.text_field :country, class: 'form-control'%>
+    <br>
+  </div>
+</div>
 
-  <%#TODO - Currency and algorithm to convert to AUD%>
-  <%=f.label :budget %>
-  <%=f.number_field :budget %>
-  <br>
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <%#TODO - Currency and algorithm to convert to AUD%>
+    <%=f.label :budget, "Budget (in AUD)" %>
+    <%=f.number_field :budget, class: 'form-control'%>
+    <br>
+  </div>
 
   <%#TODO - Select tag with common activities and 'Other'
   with pops out a text_field%>
-  <%=f.label :activity %>
-  <%=f.text_field :activity %>
+  <div class="form-group col-md-6">
+    <%=f.label :activity %>
+    <%=f.text_field :activity, class: 'form-control'%>
+    <br>
+  </div>
+</div>
+
+<div class="form-group">
+  <%=f.label :img, "Image URL" %>
+  <%=f.text_field :img, size: '60', class: 'form-control'%>
   <br>
+</div>
 
   <%=f.label :content %>
-  <%=f.text_area :content, size: "60x12" %>
+  <%=f.text_area :content, size: "60x12", class: 'form-control'%>
   <br>

@@ -1,20 +1,26 @@
-<%=link_to("Back to Home Page", root_path) %>
+<main class='container-fluid'>
 
-<h1>Blogs#show</h1>
 
-<h2><%= @blog.title%></h2>
-<p>Location: <%= @blog.location%></p>
-<p>Country: <%= @blog.country%></p>
-<p>Budget: <%= @blog.budget%></p> <%#TODO%>
-<p>Activity: <%= @blog.activity%></p>
-<p>Content: <%= @blog.content%></p>
-
+<section class="banner" style="background-image: url(<%=@blog.img%>)">
+<div class="overlay text-light">
+<div>
+<h1 class="display-1"><%= @blog.title%></h1>
+<p class="display-5"><%= @blog.location%></p>
+<p class="display-5"><%= @blog.country%></p>
+<p class="display-5">Budget: $<%= @blog.budget%> AUD</p> <%#TODO%>
+<p class="display-5">Activity: <%= @blog.activity%></p>
+<button type="button" class="btn btn-success"><a href="#content">Start Reading</a></button>
+</div>
+</div>
+</section>
+<h2 id="content"><%= @blog.title%></h2>
+<p><%= @blog.content%></p>
 <p>This post was created on:
 <%= @blog.created_at%>
 </p>
-
-<p><%= link_to 'Edit Blog Post', edit_blog_path(@blog) %> </p>
-<p><%= link_to 'Delete Blog Post', blog_path(@blog), method: 'delete', data: { confirm: "Are you sure you want to delete #{@blog[:title]} blog?"} %></p>
+<button type="button" class="btn btn-outline-primary"><%=link_to("Back to Home Page", root_path) %></button>
+<button type="button" class="btn btn-warning"><%=link_to("Edit Blog Post", edit_blog_path(@blog)) %></button>
+<button type="button" class="btn btn-danger"><%= link_to 'Delete Blog Post', blog_path(@blog), method: 'delete', data: { confirm: "Are you sure you want to delete #{@blog[:title]} blog?"} %></button>
 
 <hr>
 <h2>Comments</h2>
@@ -37,3 +43,4 @@
 
     <%= f.submit "Create Comment" %>
 <%end%>
+</main>
