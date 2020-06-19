@@ -9,10 +9,12 @@
 <p>Activity: <%= @blog.activity%></p>
 <p>Content: <%= @blog.content%></p>
 
-<p>This post was created on:</p>
+<p>This post was created on:
 <%= @blog.created_at%>
+</p>
 
-<p><%= link_to 'Edit Blog Post', edit_blog_path(@blog) %></p>
+<p><%= link_to 'Edit Blog Post', edit_blog_path(@blog) %> </p>
+<p><%= link_to 'Delete Blog Post', blog_path(@blog), method: 'delete', data: { confirm: "Are you sure you want to delete #{@blog[:title]} blog?"} %></p>
 
 <hr>
 <h2>Comments</h2>
@@ -22,6 +24,7 @@
     <p><%= comment.name %> says:</p>
     <p>"<%= comment.content %>"</p>
     <p>on <%= comment.created_at %></p>
+    <p><%= link_to 'Delete Comment', [comment.blog, comment], method: 'delete', data: { confirm: "Are you sure you want to delete this comment?"} %></p>
     <hr>
 <%end%>
 

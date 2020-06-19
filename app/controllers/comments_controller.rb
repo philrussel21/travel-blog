@@ -8,6 +8,13 @@ class CommentsController < ApplicationController
     redirect_to blog_path(@blog)
   end
 
+  def destroy
+    @blog = Blog.find(params[:blog_id])
+    @delete_comment = @blog.comments.find(params[:id])
+    @delete_comment.destroy
+    redirect_to blog_path(@blog)
+  end
+
   private
     def comment_params
       params.require(:comment).permit(:name, :content)
