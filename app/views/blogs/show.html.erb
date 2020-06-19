@@ -12,6 +12,8 @@
 <p>This post was created on:</p>
 <%= @blog.created_at%>
 
+<p><%= link_to 'Edit Blog Post', edit_blog_path(@blog) %></p>
+
 <hr>
 <h2>Comments</h2>
 
