@@ -21,11 +21,12 @@
               <div class="my-3 py-3">
                 <h2 class="display-5 i-h5 w-100 py-3"><%= link_to blogs[0].title, blog_path(blogs[0])%></h2>
               </div>
-              <div class="bg-light text-dark box-shadow mx-auto i-div" style="width: 60%; height: 300px; border-radius: 21px 21px 0 0;">
+              <div class="bg-light text-dark box-shadow mx-auto i-div pb-3" style="width: 60%; height: 300px; border-radius: 21px 21px 0 0;">
                 <p><%=blogs[0].location%></p>
                 <p><%=blogs[0].country%></p>
                 <p>Budget: <%=blogs[0].budget%></p>
                 <p>Activity: <%=blogs[0].activity%></p>
+                <p>Author: <%=blogs[0].author%></p>
                 <%= link_to 'Read More', blog_path(blogs[0]), class: "btn btn-outline-primary w-75 h-auto m-auto" %>
               </div>
             </div>
@@ -37,11 +38,12 @@
                 <div class="my-3 p-3">
                   <h2 class="display-5 i-h5 py-3"><%= link_to(blogs[1].title, blog_path(blogs[1]))%></h2>
                 </div>
-                <div class="bg-light text-dark box-shadow mx-auto i-div" style="width: 60%; height: 300px; border-radius: 21px 21px 0 0;">
+                <div class="bg-light text-dark box-shadow mx-auto i-div pb-3" style="width: 60%; height: 300px; border-radius: 21px 21px 0 0;">
                   <p ><%=blogs[1].location%></p>
                   <p ><%=blogs[1].country%></p>
                   <p >Budget: <%=blogs[1].budget%></p>
                   <p >Activity: <%=blogs[1].activity%></p>
+                <p>Author: <%=blogs[1].author%></p>
                 <%= link_to 'Read More', blog_path(blogs[1]), class: "btn btn-outline-primary w-75 h-auto m-auto" %>
                 </div>
               </div>

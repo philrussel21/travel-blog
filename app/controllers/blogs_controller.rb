@@ -1,4 +1,8 @@
 class BlogsController < ApplicationController
+
+  http_basic_authenticate_with name: "admin", password: "secretpassword", 
+  except: [:index, :show, :new, :create]
+
   def index
     @blogs = Blog.order("created_at DESC")
   end
@@ -43,6 +47,6 @@ class BlogsController < ApplicationController
 
   private
     def blog_params
-      params.require(:blog).permit(:title, :location, :country, :budget, :activity, :content, :img)
+      params.require(:blog).permit(:title, :location, :country, :budget, :activity, :content, :img, :author)
     end
 end
