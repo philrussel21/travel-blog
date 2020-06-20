@@ -1,8 +1,56 @@
-<h1>Travel Blog</h1>
 
-<% @blogs.each do |blog| %>
-<p><%= link_to(blog.title, blog_path(blog))%></p>
 
-<% end %>
 
-<p><%= link_to 'Add New Blog Post', new_blog_path %></p>
+<main>
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+      <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h1 class="display-4 font-weight-normal">Travel Blog</h1>
+        <p class="lead font-weight-normal">Your one stop blogsite for your travel plans.</p>
+        <%= link_to 'Add New Blog Post', new_blog_path, class: "btn btn-outline-success" %>
+
+      </div>
+  </div>
+
+  
+  <div class="container">
+
+    <%@blogs.each_slice(2) do |blogs| %>
+        <div class="row mb-4">
+          <div class="col-lg-6">
+            <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden" style="background-image: url(<%=blogs[0][:img]%>)">
+              <div class="my-3 py-3">
+                <h2 class="display-5 i-h5 w-100 py-3"><%= link_to blogs[0].title, blog_path(blogs[0])%></h2>
+              </div>
+              <div class="bg-light text-dark box-shadow mx-auto i-div" style="width: 60%; height: 300px; border-radius: 21px 21px 0 0;">
+                <p><%=blogs[0].location%></p>
+                <p><%=blogs[0].country%></p>
+                <p>Budget: <%=blogs[0].budget%></p>
+                <p>Activity: <%=blogs[0].activity%></p>
+                <%= link_to 'Read More', blog_path(blogs[0]), class: "btn btn-outline-primary w-75 h-auto m-auto" %>
+              </div>
+            </div>
+          </div>
+
+          <%if !blogs[1].nil?%>
+            <div class="col-lg-6">
+              <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden" style="background-image: url(<%=blogs[1][:img]%>)">
+                <div class="my-3 p-3">
+                  <h2 class="display-5 i-h5 py-3"><%= link_to(blogs[1].title, blog_path(blogs[1]))%></h2>
+                </div>
+                <div class="bg-light text-dark box-shadow mx-auto i-div" style="width: 60%; height: 300px; border-radius: 21px 21px 0 0;">
+                  <p ><%=blogs[1].location%></p>
+                  <p ><%=blogs[1].country%></p>
+                  <p >Budget: <%=blogs[1].budget%></p>
+                  <p >Activity: <%=blogs[1].activity%></p>
+                <%= link_to 'Read More', blog_path(blogs[1]), class: "btn btn-outline-primary w-75 h-auto m-auto" %>
+                </div>
+              </div>
+            </div>
+          <%end%>
+
+        </div>
+    <%end%>
+
+  </div>
+
+</main>

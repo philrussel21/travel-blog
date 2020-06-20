@@ -4,7 +4,7 @@
 <section class="banner" style="background-image: url(<%=@blog.img%>)">
 <div class="overlay text-light">
 <div>
-<h1 class="display-1"><%= @blog.title%></h1>
+<h1 class="display-2"><%= @blog.title%></h1>
 <p class="display-5"><%= @blog.location%></p>
 <p class="display-5"><%= @blog.country%></p>
 <p class="display-5">Budget: $<%= @blog.budget%> AUD</p> <%#TODO%>
@@ -13,34 +13,50 @@
 </div>
 </div>
 </section>
-<h2 id="content"><%= @blog.title%></h2>
-<p><%= @blog.content%></p>
+
+<section class="container my-4">
+<div class="main bg-light">
+<h2 id="content" class="display-4 text-center"><%= @blog.title%></h2>
+<p class="px-4"><%= @blog.content%></p>
 <p>This post was created on:
 <%= @blog.created_at%>
 </p>
-<button type="button" class="btn btn-outline-primary"><%=link_to("Back to Home Page", root_path) %></button>
-<button type="button" class="btn btn-warning"><%=link_to("Edit Blog Post", edit_blog_path(@blog)) %></button>
-<button type="button" class="btn btn-danger"><%= link_to 'Delete Blog Post', blog_path(@blog), method: 'delete', data: { confirm: "Are you sure you want to delete #{@blog[:title]} blog?"} %></button>
+</div>
+
+<div class="row buttons d-flex flex-wrap justify-content-around">
+<button type="button" class="w-100 col-lg-3 btn btn-outline-primary"><%=link_to("Back to Home Page", root_path) %></button>
+<button type="button" class="w-100 col-lg-3 btn btn-warning"><%=link_to("Edit Blog Post", edit_blog_path(@blog)) %></button>
+<button type="button" class="w-100 col-lg-3 btn btn-danger"><%= link_to 'Delete Blog Post', blog_path(@blog), method: 'delete', data: { confirm: "Are you sure you want to delete #{@blog[:title]} blog?"} %></button>
+</div>
+</section>
 
 <hr>
+<section class="container">
 <h2>Comments</h2>
 
 
 <% @blog.comments.each do |comment| %>
     <p><%= comment.name %> says:</p>
+    <div class="bg-light">
     <p>"<%= comment.content %>"</p>
     <p>on <%= comment.created_at %></p>
-    <p><%= link_to 'Delete Comment', [comment.blog, comment], method: 'delete', data: { confirm: "Are you sure you want to delete this comment?"} %></p>
+    </div>
+    <button type="button" class="btn btn-danger"><%= link_to 'Delete Comment', [comment.blog, comment], method: 'delete', data: { confirm: "Are you sure you want to delete this comment?"} %></button>
+
     <hr>
 <%end%>
 
-
+<div class="container-fluid mb-4">
 <%= form_with(model: [ @blog, @blog.comments.build], local: true) do |f| %>
+    <div class="form-group">
     <%=f.label :name, "Please provide your name:" %>
-    <%= f.text_field :name, size: '30'%>
-
-    <%=f.text_area :content, size: '30x6'%>
-
-    <%= f.submit "Create Comment" %>
+    <%= f.text_field :name, size: '30', class: 'mw-100'%>
+    </div>
+    <div class="form-group">
+    <%=f.text_area :content, size: '60x6', placeholder: "Please put your comments here ...", class: 'mw-100'%>
+    </div>
+    <%= f.submit "Create Comment", class: 'btn btn-success' %>
 <%end%>
+</div>
+</section>
 </main>

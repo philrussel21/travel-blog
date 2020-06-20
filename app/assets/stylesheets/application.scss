@@ -29,7 +29,7 @@ a {
     }
 }
 
-.display-1,
+.display-2,
 h1,
 h2 {
     font-family: "Roboto", sans-serif;
@@ -67,5 +67,25 @@ input[type="submit"] {
 
     .display-5 {
         font-size: 2rem;
+    }
+}
+
+.i-h5 {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.i-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    button {
+        width: 70%;
+        height: auto;
+        margin: auto;
     }
 }
