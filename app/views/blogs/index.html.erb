@@ -17,7 +17,7 @@
     <%@blogs.each_slice(2) do |blogs| %>
         <div class="row mb-4">
           <div class="col-lg-6">
-            <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden" style="background-image: url(<%=blogs[0][:img]%>)">
+            <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden" style="background-image: url(<%=blogs[0].img_url%>)">
               <div class="my-3 py-3">
                 <h2 class="display-5 i-h5 w-100 py-3"><%= link_to blogs[0].title, blog_path(blogs[0])%></h2>
               </div>
@@ -34,7 +34,7 @@
 
           <%if !blogs[1].nil?%>
             <div class="col-lg-6">
-              <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden" style="background-image: url(<%=blogs[1][:img]%>)">
+              <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden" style="background-image: url(<%=blogs[1].img_url%>)">
                 <div class="my-3 p-3">
                   <h2 class="display-5 i-h5 py-3"><%= link_to(blogs[1].title, blog_path(blogs[1]))%></h2>
                 </div>
