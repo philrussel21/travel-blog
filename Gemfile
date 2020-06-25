@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails', '~> 4.4.0'
 
+gem 'country_select', '~> 4.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

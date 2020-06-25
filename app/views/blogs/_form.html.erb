@@ -14,7 +14,8 @@
   <%#TODO - Select tag with all countries listed%>
   <div class="form-group col-md-6">
     <%=f.label :country %>
-    <%=f.text_field :country, class: 'form-control'%>
+    <%#f.text_field :country, class: 'form-control'%>
+    <%= f.country_select :country, {priority_countries: ["AU"]}, {class: 'form-control'}%>
     <br>
   </div>
 </div>
